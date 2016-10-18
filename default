@@ -1,0 +1,14 @@
+server {
+  listen [::]:80 default_server;
+  server_name _;
+
+  root /app/out;
+
+  index index.html index.htm;
+
+  include redirects.d;
+
+  location / {
+    try_files $uri $uri/ =404;
+  }
+}
